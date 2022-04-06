@@ -36,6 +36,22 @@ class BookList extends React.Component{
      // Lifecycle method 4
      componentDidMount(){
         console.log("test componentDidMount");
+
+        setTimeout(() => {
+            this.setState({
+                books: [
+                    ...this.state.books, {title: 'Harry Potter', isbn:'esv148'}
+                ]
+            })
+        }, 2000)
+
+        setTimeout( () => {
+            this.setState({
+                books: this.state.books.map(book => ( (book.title==='Avatar') ? ({...book, title: 'Game of Thrones'}) : ({...book}) ) )
+            })
+        }, 4000)
+
+
     }
 
      // Lifecycle method 3
